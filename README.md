@@ -1,6 +1,6 @@
 # giu
 
-Forked from https://github.com/AllenDang/giu
+Forked from https://github.com/tbxphotography/giu
 
 Added callback arguments
 

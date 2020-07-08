@@ -3,7 +3,7 @@ package main
 import (
 	"math"
 
-	g "github.com/AllenDang/giu"
+	g "github.com/tbxphotography/giu"
 )
 
 func loop() {

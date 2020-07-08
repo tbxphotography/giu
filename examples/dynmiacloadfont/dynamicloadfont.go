@@ -1,8 +1,8 @@
 package main
 
 import (
-	g "github.com/AllenDang/giu"
-	"github.com/AllenDang/giu/imgui"
+	g "github.com/tbxphotography/giu"
+	"github.com/tbxphotography/giu/imgui"
 )
 
 func loadFont() {

@@ -5,7 +5,7 @@ import (
 	"image"
 	"runtime"
 
-	"github.com/AllenDang/giu/imgui"
+	"github.com/tbxphotography/giu/imgui"
 )
 
 type Texture struct {

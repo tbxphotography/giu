@@ -5,7 +5,7 @@ import (
 	_ "image/png"
 	"time"
 
-	g "github.com/AllenDang/giu"
+	g "github.com/tbxphotography/giu"
 )
 
 func loop() {

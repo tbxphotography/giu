@@ -9,8 +9,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/AllenDang/giu/imgui"
 	resty "github.com/go-resty/resty/v2"
+	"github.com/tbxphotography/giu/imgui"
 )
 
 type LineWidget struct {
