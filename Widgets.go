@@ -857,20 +857,20 @@ type SelectableWidget struct {
 	flags    SelectableFlags
 	width    float32
 	height   float32
-	onClick  func()
+	onClick  func(label string)
 }
 
 func (s *SelectableWidget) Build() {
 	if imgui.SelectableV(s.label, s.selected, int(s.flags), imgui.Vec2{X: s.width, Y: s.height}) && s.onClick != nil {
-		s.onClick()
+		s.onClick(s.label)
 	}
 }
 
-func Selectable(label string, onClick func()) *SelectableWidget {
+func Selectable(label string, onClick func(string)) *SelectableWidget {
 	return SelectableV(label, false, 0, 0, 0, onClick)
 }
 
-func SelectableV(label string, selected bool, flags SelectableFlags, width, height float32, onClick func()) *SelectableWidget {
+func SelectableV(label string, selected bool, flags SelectableFlags, width, height float32, onClick func(label string)) *SelectableWidget {
 	return &SelectableWidget{
 		label:    label,
 		selected: selected,
@@ -1411,7 +1411,7 @@ func (l *ListBoxWidget) Build() {
 				for i := clipper.DisplayStart; i < clipper.DisplayEnd; i++ {
 					selected := i == state.selectedIndex
 					item := l.items[i]
-					SelectableV(item, selected, SelectableFlagsAllowDoubleClick, 0, 0, func() {
+					SelectableV(item, selected, SelectableFlagsAllowDoubleClick, 0, 0, func(label string) {
 						if state.selectedIndex != i {
 							state.selectedIndex = i
 							if l.onChange != nil {
@@ -1577,7 +1577,7 @@ func (d *DatePickerWidget) Build() {
 									imgui.PushStyleColor(imgui.StyleColorText, highlightColor)
 								}
 
-								SelectableV(fmt.Sprintf("%02d", day), day == int(d.date.Day()), 0, 0, 0, func() {
+								SelectableV(fmt.Sprintf("%02d", day), day == int(d.date.Day()), 0, 0, 0, func(label string) {
 									*d.date, _ = time.ParseInLocation(
 										"2006-01-02",
 										fmt.Sprintf("%d-%02d-%02d",
